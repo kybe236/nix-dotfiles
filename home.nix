@@ -40,6 +40,8 @@
     ".config/ashell/config.toml".source = ./ashell.toml;
     ".config/hypr/wp.png".source = ./wp.png;
 
+    ".config/dunst/dunstrc".source = ./dunstrc;
+
     ".ssh/config".text = ''
       Host kybe.xyz
         User root

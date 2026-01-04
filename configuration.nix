@@ -59,6 +59,11 @@
     ashell
     hyprshot
     jdk21
+    rustup
+    sccache
+    speedtest-cli
+    neovim
+    dunst
     (prismlauncher.override {
       jdks = [
         jdk21
