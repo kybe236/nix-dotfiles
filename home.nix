@@ -3,16 +3,22 @@
 {
   home.username = "kybe";
   home.homeDirectory = "/home/kybe";
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    initContent = ''
+      ssh-add ~/.ssh/id_rsa
+    '';
+  };
 
   home.stateVersion = "25.11";
 
   home.packages = [
   ];
 
+  services.ssh-agent.enable = true;
   programs.git = {
     enable = true;
-    
+
     signing = {
       signByDefault = true;
       key = "A96D0830396F4327";
