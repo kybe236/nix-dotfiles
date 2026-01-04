@@ -58,6 +58,12 @@
     lf
     ashell
     hyprshot
+    jdk21
+    (prismlauncher.override {
+      jdks = [
+        jdk21
+      ];
+    })
   ];
 
   programs.git.enable = true;

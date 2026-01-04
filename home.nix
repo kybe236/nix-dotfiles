@@ -6,7 +6,7 @@
   programs.zsh = {
     enable = true;
     initContent = ''
-      ssh-add ~/.ssh/kybe
+      ssh-add ~/.ssh/kybe > /dev/null 2>&1
     '';
   };
 
