@@ -15,7 +15,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, home-manager, nixvim, ... }:
   {
     nixosConfigurations.knx = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -30,6 +30,9 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.sharedModules = [
+              nixvim.homeModules.nixvim
+            ];
           home-manager.users.kybe = ./home/home.nix;
         }
       ];

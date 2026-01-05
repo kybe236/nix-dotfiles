@@ -25,7 +25,6 @@
     lf
     jdk21
     rustup
-    sccache
     speedtest-cli
     neovim
     file

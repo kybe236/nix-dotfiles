@@ -4,8 +4,14 @@
   home.username = "kybe";
   home.homeDirectory = "/home/kybe";
 
+  programs.nixvim.enable = true;
+  programs.nixvim.imports = [ ./nixvim.nix ];
+
+  ##### Services ######
   services.ssh-agent.enable = true;
 
+
+  ##### Programs ######
   programs.zsh = {
     enable = true;
     initContent = ''
