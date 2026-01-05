@@ -28,6 +28,7 @@
     file
 
     ## TUI
+    iamb
     btop
     feh
     lf
