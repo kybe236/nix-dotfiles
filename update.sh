@@ -6,7 +6,7 @@ COMMIT_MSG="Config-change $(date '+%Y-%m-%d %H:%M:%S')"
 
 git add -A
 
-if git diff-index --quit HEAD --; then
+if git diff-index --quiet HEAD --; then
 	echo "No changes to commit."
 else
 	 git commit -m "$COMMIT_MSG"
