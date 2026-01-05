@@ -4,7 +4,7 @@
   home.username = "kybe";
   home.homeDirectory = "/home/kybe";
 
-  programs.nixvim.imports = [ ./nixvim.nix ];
+  programs.nixvim.imports = [ ./nixvim ];
 
   xdg.enable = true;
   home.sessionVariables = rec {
