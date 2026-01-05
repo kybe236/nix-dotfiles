@@ -4,7 +4,6 @@
   home.username = "kybe";
   home.homeDirectory = "/home/kybe";
 
-  programs.nixvim.enable = true;
   programs.nixvim.imports = [ ./nixvim.nix ];
 
   xdg.enable = true;
