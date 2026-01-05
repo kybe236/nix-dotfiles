@@ -6,38 +6,53 @@
 
   # https://search.nixos.org/ https://mynixos.com/
   environment.systemPackages = with pkgs; [
-    vim
+    ## Netowrking
     wget
-    mtr
     curl
-    zsh
-    kitty
+    mtr
+
+    ## Editors
     vscodium
+    vim
+
+    ## Apps
     vesktop
-    pamixer
     spotify
-    jetbrains.rust-rover
+
+    ## CLI
+    speedtest-cli
+    fastfetch
+    pamixer
+    psmisc
+    unzip
+    file
+
+    ## TUI
     btop
     feh
-    fastfetch
-    unzip
-    psmisc
     lf
-    jdk21
-    rustup
-    speedtest-cli
-    neovim
-    file
+
+    ## Nix
     nixfmt
     nixd
+
+    ## Rust
+    jetbrains.rust-rover
+    rustup
+
+    ## Games
     (prismlauncher.override {
       jdks = [
         jdk21
       ];
     })
+
+    zsh
+    jdk21
   ];
 
   programs.git.enable = true;
+  programs.steam.enable = true;
 
   ##### ZSH #####
   users.defaultUserShell = pkgs.zsh;

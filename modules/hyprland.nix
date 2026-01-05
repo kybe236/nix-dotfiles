@@ -13,5 +13,15 @@
     hyprshot
     dunst
     wl-clipboard-rs
+    kitty
   ];
+
+  # Clear tofi cache after installs incase .desktop files get added
+  system.activationScripts = {
+    tofi-cleanup.text = ''
+      for userHome in /home/*; do
+        rm "$userHome/.cache/tofi-drun"
+      done
+    '';
+  };
 }

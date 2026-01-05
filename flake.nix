@@ -15,27 +15,33 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, nixvim, ... }:
-  {
-    nixosConfigurations.knx = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./programms/programms.nix
-        ./modules/system.nix
-        ./modules/hyprland.nix
-        ./hardware/hardware-configuration.nix
-        ./hardware/nvidia.nix
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      nixvim,
+      ...
+    }:
+    {
+      nixosConfigurations.knx = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./programms/programms.nix
+          ./modules/system.nix
+          ./modules/hyprland.nix
+          ./hardware/hardware-configuration.nix
+          ./hardware/nvidia.nix
 
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.sharedModules = [
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.sharedModules = [
               nixvim.homeModules.nixvim
             ];
-          home-manager.users.kybe = ./home/home.nix;
-        }
-      ];
+            home-manager.users.kybe = ./home/home.nix;
+          }
+        ];
+      };
     };
-  };
 }
