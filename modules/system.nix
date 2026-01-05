@@ -25,6 +25,7 @@
   sops.secrets.kybe-pass = { };
 
   ##### Users #####
+  users.mutableUsers = false;
   users.users.root = {
     hashedPasswordFile = "/run/secrets/root-pass";
   };
