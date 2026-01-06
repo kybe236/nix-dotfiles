@@ -4,11 +4,12 @@
     ./hardware-configuration.nix
     ./nvidia.nix
 
-    ../../modules/system
+    ../../modules
     inputs.home-manager.nixosModules.home-manager
   ];
 
   firefox.enable = true;
+  hyprland.enable = true;
 
   networking.hostName = "knx";
 

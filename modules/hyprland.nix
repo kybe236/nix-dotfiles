@@ -1,27 +1,34 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
+
 {
-  programs.hyprland.enable = true;
+  options = {
+    hyprland.enable = lib.mkEnableOption "enables hyprland";
+  };
 
-  environment.systemPackages = with pkgs; [
-    wl-clipboard-rs
-    hyprpolkitagent
-    hyprsysteminfo
-    hyprpicker
-    hyprcursor
-    hyprpaper
-    hyprshot
-    ashell
-    dunst
-    kitty
-    tofi
-  ];
+  config = lib.mkIf config.hyprland.enable {
+    programs.hyprland.enable = true;
 
-  # Clear tofi cache after installs incase .desktop files get added
-  system.activationScripts = {
-    tofi-cleanup.text = ''
-      for userHome in /home/*; do
-        rm "$userHome/.cache/tofi-drun" &> /dev/null || true
-      done
-    '';
+    environment.systemPackages = with pkgs; [
+      wl-clipboard-rs
+      hyprpolkitagent
+      hyprsysteminfo
+      hyprpicker
+      hyprcursor
+      hyprpaper
+      hyprshot
+      ashell
+      dunst
+      kitty
+      tofi
+    ];
+
+    # Clear tofi cache after installs incase .desktop files get added
+    system.activationScripts = {
+      tofi-cleanup.text = ''
+        for userHome in /home/*; do
+          rm "$userHome/.cache/tofi-drun" &> /dev/null || true
+        done
+      '';
+    };
   };
 }
