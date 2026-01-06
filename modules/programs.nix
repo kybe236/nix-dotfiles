@@ -12,6 +12,7 @@
 
     ## Apps
     spotify
+    element-desktop
     (inputs.nixpkgs-vesktop.legacyPackages.${system}.vesktop)
 
     ## CLI
@@ -27,7 +28,6 @@
     git
 
     ## TUI
-    iamb # matrix
     btop
     feh # iamge viewer
     lf # file browser
@@ -52,8 +52,9 @@
     pinentry-tty # TODO: setup
   ];
 
+  programs.zoxide.enable = true;
   programs.steam.enable = true;
-
+ 
   ##### GPG Agent #####
   programs.gnupg.agent = {
     enable = true;

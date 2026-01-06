@@ -1,4 +1,5 @@
 # https://github.com/hrkfdn/ncspot/issues/1757#issuecomment-3709315765
+# (unused but still keeping for future reference)
 
 final: prev: {
   ncspot = prev.ncspot.overrideAttrs (oldAttrs: rec {
