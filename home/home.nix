@@ -20,6 +20,7 @@
     enable = true;
     dotDir = "${config.xdg.configHome}/zsh";
     initContent = ''
+      alias cd='z'
       alias -s nix='$EDITOR'
       ssh-add ~/.ssh/kybe > /dev/null 2>&1
     '';

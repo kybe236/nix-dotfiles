@@ -25,6 +25,7 @@
     unzip
     file
     sops # secrets
+    fzf # fuzzy find
     git
 
     ## TUI
