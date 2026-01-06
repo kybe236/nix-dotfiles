@@ -16,6 +16,10 @@
 
 
   ##### Programs ######
+  programs.fd = {
+    enable = true;
+    hidden = true;
+  };
   programs.zsh = {
     enable = true;
     dotDir = "${config.xdg.configHome}/zsh";

@@ -1,9 +1,10 @@
-{ config, inputs, pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   networking.networkmanager.enable = true;
-  networking.nameservers = [ "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
+  networking.networkmanager.dns = "systemd-resolved";
   networking.firewall.allowedTCPPorts = [ 22 ];
+  networking.nameservers = [ "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
 
   time.timeZone = "Europe/Berlin";
 
@@ -25,23 +26,22 @@
   ];
 
   #### Sops #####
-  imports = [ inputs.sops-nix.nixosModules.sops ];
-
   sops.defaultSopsFile = ../secrets/secrets.yaml;
   sops.defaultSopsFormat = "yaml";
 
   sops.age.keyFile = "/nix/persist/var/lib/sops-nix/key.txt";
 
-  sops.secrets.root-pass = { };
-  sops.secrets.kybe-pass = { };
-  sops.secrets.root-pass.neededForUsers = true;
-  sops.secrets.kybe-pass.neededForUsers = true;
-
   ##### Users #####
   users.mutableUsers = false;
+
+  sops.secrets.root-pass = { };
+  sops.secrets.root-pass.neededForUsers = true;
   users.users.root = {
     hashedPasswordFile = config.sops.secrets.root-pass.path;
   };
+
+  sops.secrets.kybe-pass = { };
+  sops.secrets.kybe-pass.neededForUsers = true;
   users.users.kybe = {
     isNormalUser = true;
     description = "2kybe3";

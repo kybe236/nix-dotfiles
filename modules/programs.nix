@@ -17,6 +17,7 @@
 
     ## CLI
     speedtest-cli
+    ripgrep-all # ripgrep with extra files
     fastfetch
     pamixer # pulseaudio command line mixer
     ripgrep # Fast file search
@@ -26,7 +27,10 @@
     file
     sops # secrets
     fzf # fuzzy find
+    dig
     git
+    bat # cat
+    fd # find replacement
 
     ## TUI
     btop
