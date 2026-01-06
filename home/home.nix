@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, ... }:
 
 {
   home.username = "kybe";
@@ -7,7 +7,7 @@
   programs.nixvim.imports = [ ./nixvim ];
 
   xdg.enable = true;
-  home.sessionVariables = rec {
+  home.sessionVariables = {
     EDITOR = "nvim";
   };
 
@@ -46,6 +46,7 @@
     ".config/hypr/hyprland.conf".source = ./config/hyprland.conf;
     ".config/hypr/hyprpaper.conf".source = ./config/hyprpaper.conf;
     ".config/ashell/config.toml".source = ./config/ashell.toml;
+    ".config/btop/btop.conf".source = ./config/btop.conf;
     ".config/hypr/wp.png".source = ./config/wp.png;
 
     ".config/dunst/dunstrc".source = ./config/dunstrc;

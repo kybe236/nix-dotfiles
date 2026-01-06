@@ -1,7 +1,6 @@
 { inputs, pkgs, ... }:
 
 {
-  networking.hostName = "knx";
   networking.networkmanager.enable = true;
   networking.nameservers = [ "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
   networking.firewall.allowedTCPPorts = [ 22 ];
@@ -78,6 +77,4 @@
       PermitRootLogin = "yes";
     };
   };
-
-  system.stateVersion = "25.11";
 }

@@ -32,26 +32,18 @@
       system = "x86_64-linux";
     in
     {
-      nixosConfigurations.knx = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs system; };
-        modules = [
-          ./programms/programms.nix
-          ./modules/system.nix
-          ./modules/hyprland.nix
-          ./hardware/hardware-configuration.nix
-          ./hardware/nvidia.nix
+      nixosConfigurations = {
+        knx = nixpkgs.lib.nixosSystem {
+	  inherit system;
 
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.sharedModules = [
-              nixvim.homeModules.nixvim
-            ];
-            home-manager.users.kybe = ./home/home.nix;
-          }
-        ];
+	  specialArgs = {
+	    inherit inputs system;
+	  };
+
+	  modules = [
+	    ./hosts/knx
+	  ];
+	};
       };
     };
 }

@@ -3,17 +3,17 @@
   programs.hyprland.enable = true;
 
   environment.systemPackages = with pkgs; [
-    hyprpicker
-    tofi
-    hyprpolkitagent
-    hyprcursor
-    hyprsysteminfo
-    hyprpaper
-    ashell
-    hyprshot
-    dunst
     wl-clipboard-rs
+    hyprpolkitagent
+    hyprsysteminfo
+    hyprpicker
+    hyprcursor
+    hyprpaper
+    hyprshot
+    ashell
+    dunst
     kitty
+    tofi
   ];
 
   # Clear tofi cache after installs incase .desktop files get added

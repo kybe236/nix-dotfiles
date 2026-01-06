@@ -1,19 +1,14 @@
 { system, inputs, pkgs, ... }:
 {
-  imports = [
-    ./firefox.nix
-  ];
-
   # https://search.nixos.org/ https://mynixos.com/
   environment.systemPackages = with pkgs; [
     ## Netowrking
     wget
     curl
-    mtr
+    mtr # traceroute + ping tool
 
     ## Editors
     vscodium
-    vim
 
     ## Apps
     spotify
@@ -22,17 +17,18 @@
     ## CLI
     speedtest-cli
     fastfetch
-    pamixer
-    psmisc
+    pamixer # pulseaudio command line mixer
+    psmisc # killall etc.
     unzip
     file
-    sops
+    sops # secrets
+    git
 
     ## TUI
-    iamb
+    iamb # matrix
     btop
-    feh
-    lf
+    feh # iamge viewer
+    lf # file browser
 
     ## Nix
     nixfmt
@@ -54,20 +50,7 @@
     pinentry-tty
   ];
 
-  programs.git.enable = true;
   programs.steam.enable = true;
-
-  ##### ZSH #####
-  users.defaultUserShell = pkgs.zsh;
-  programs.zsh = {
-    enable = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-    ohMyZsh = {
-      enable = true;
-      theme = "clean";
-    };
-  };
 
   ##### GPG Agent #####
   programs.gnupg.agent = {
