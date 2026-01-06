@@ -18,6 +18,8 @@
     speedtest-cli
     fastfetch
     pamixer # pulseaudio command line mixer
+    ripgrep # Fast file search
+    openssl # Provides some usefull stuff (openssl rand -hex <length>, etc.)
     psmisc # killall etc.
     unzip
     file
@@ -47,7 +49,7 @@
 
     zsh
     jdk21
-    pinentry-tty
+    pinentry-tty # TODO: setup
   ];
 
   programs.steam.enable = true;

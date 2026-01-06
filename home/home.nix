@@ -20,6 +20,7 @@
     enable = true;
     dotDir = "${config.xdg.configHome}/zsh";
     initContent = ''
+      alias -s nix='$EDITOR'
       ssh-add ~/.ssh/kybe > /dev/null 2>&1
     '';
   };
@@ -42,34 +43,22 @@
   programs.home-manager.enable = true;
 
   home.file = {
-    ".icons/theme_NotwaitaBlack".source = ./config/theme_NotwaitaBlack;
-    ".config/hypr/hyprland.conf".source = ./config/hyprland.conf;
-    ".config/hypr/hyprpaper.conf".source = ./config/hyprpaper.conf;
-    ".config/ashell/config.toml".source = ./config/ashell.toml;
-    ".config/btop/btop.conf".source = ./config/btop.conf;
+    ##### Hyprland #####
+    ".icons/theme_NotwaitaBlack".source = ./config/hypr/theme-notwaita-black; # Hyprcursor Theme
+    ".config/hypr/hyprland.conf".source = ./config/hypr/hyprland.conf; # Hyprland
+    ".config/hypr/hyprpaper.conf".source = ./config/hypr/hyprpaper.conf; # Hyprpaper
+    ".config/ashell/config.toml".source = ./config/ashell/ashell.toml; # Ashell (bar)
+    ".config/dunst/dunstrc".source = ./config/dunst/dunstrc; # Dunstrc config (notification daemon)
+    ".config/tofi/config".source = ./config/tofi/config; # Tofi (app selector)
+
+    ##### BTOP #####
+    ".config/btop/btop.conf".source = ./config/btop/btop.conf;
+
+    ##### Wallpaper #####
     ".config/hypr/wp.png".source = ./config/wp.png;
 
-    ".config/dunst/dunstrc".source = ./config/dunstrc;
-
-    ".ssh/config".text = ''
-      Host kybe.xyz
-        User root
-        IdentityFile ~/.ssh/kybe
-        IdentitiesOnly yes
-    '';
-    ".config/tofi/config".text = ''
-      width = 100%
-      height = 100%
-      border-width = 0
-      outline-width = 0
-      padding-left = 40%
-      padding-top = 40%
-      result-spacing = 10
-      num-results = 5
-      font-size = 15
-      font = monospace
-      background-color = #000A
-    '';
+    ##### SSH #####
+    ".ssh/config".source = ./config/ssh/config;
   };
 
   home.stateVersion = "25.11";

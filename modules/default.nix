@@ -3,7 +3,7 @@
   imports = [
     ./firefox.nix
     ./hyprland.nix
-    ./programms.nix
+    ./programs.nix
     ./system.nix
     ./zsh.nix
   ];
