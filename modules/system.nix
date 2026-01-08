@@ -1,17 +1,21 @@
-{ config, pkgs, ... }:
+{ lib, config, pkgs, ... }:
 
 {
+  time.timeZone = "Europe/Berlin";
+
+  hardware.bluetooth.enable = true;
+
+  ##### Networking #####
   networking.networkmanager.enable = true;
   networking.networkmanager.dns = "systemd-resolved";
   networking.firewall.allowedTCPPorts = [ 22 ];
-  networking.nameservers = [ "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
 
-  time.timeZone = "Europe/Berlin";
-
-  i18n.defaultLocale = "en_US.UTF-8";
-  console.keyMap = "us";
-
-  hardware.bluetooth.enable = true;
+  ##### TTY #####
+  services.getty = {
+    autologinOnce = true;
+    autologinUser = "kybe";
+    helpLine = lib.mkForce "";
+  };
 
   ##### KWALLET #####
   programs.kdeconnect.enable = true;
@@ -77,19 +81,19 @@
     enable = true;
     dnssec = "true";
     domains = [ "~." ];
-    fallbackDns = [ "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
-    dnsovertls = "true";
+    fallbackDns = [ "1.1.1.1" "1.0.0.1" ];
+    dnsovertls = "false";
   };
 
   services.openssh = {
     enable = true;
     ports = [ 22 ];
     settings = {
-      PasswordAuthentication = false;
+      PasswordAuthentication = true;
       AllowUsers = [ "kybe" ];
       UseDns = true;
       X11Forwarding = false;
-      PermitRootLogin = "yes";
+      PermitRootLogin = "no";
     };
   };
 }

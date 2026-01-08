@@ -12,6 +12,7 @@
 
     ## Apps
     spotify
+    tor-browser
     element-desktop
     (inputs.nixpkgs-vesktop.legacyPackages.${system}.vesktop)
 
