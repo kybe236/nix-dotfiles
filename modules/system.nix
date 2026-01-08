@@ -41,6 +41,10 @@
 
   sops.age.keyFile = "/nix/persist/var/lib/sops-nix/key.txt";
 
+  sops.secrets.kybe-imap = {
+    owner = "kybe";
+  };
+
   ##### Users #####
   users.mutableUsers = false;
 

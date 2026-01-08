@@ -38,6 +38,7 @@
     fd # find replacement
 
     ## TUI
+    himalaya
     btop
     feh # iamge viewer
     lf # file browser
@@ -63,8 +64,8 @@
     pinentry-curses
   ];
 
-  programs.zoxide.enable = true;
   programs.steam.enable = true;
+  programs.zoxide.enable = true;
 
   ##### GPG Agent #####
   programs.gnupg.agent = {
