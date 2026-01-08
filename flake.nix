@@ -32,8 +32,6 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
-        overlays = [ (import ./overlays/ncspot.nix) ];
-
         config = {
           allowUnfree = true;
           nvidia.acceptLicense = true;
@@ -41,10 +39,6 @@
       };
     in
     {
-      packages.${system} = {
-        ncspot = pkgs.ncspot;
-      };
-
       nixosConfigurations = {
         knx = nixpkgs.lib.nixosSystem {
           inherit system pkgs;
