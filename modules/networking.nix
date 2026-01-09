@@ -1,8 +1,15 @@
 { config, ... }:
 {
-  networking.networkmanager.enable = true;
-  networking.networkmanager.dns = "systemd-resolved";
-  networking.firewall.allowedTCPPorts = [ 22 ];
+  networking = {
+    networkmanager = {
+      enable = true;
+      dns = "systemd-resolved";
+      wifi.macAddress = "7A:3F:C2:91:4D:8D";
+    };
+    firewall.allowedTCPPorts = [
+      22
+    ];
+  };
 
   services.resolved = {
     enable = true;
@@ -15,8 +22,10 @@
     dnsovertls = "false";
   };
 
-  sops.secrets."wireguard/key" = { };
-  sops.secrets."wireguard/pk" = { };
+  sops.secrets = {
+    "wireguard/key" = { };
+    "wireguard/pk" = { };
+  };
 
   networking.wg-quick.interfaces = {
     "kybe.xyz" = {
