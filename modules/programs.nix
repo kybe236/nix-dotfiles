@@ -52,6 +52,7 @@
     ## Rust
     jetbrains.rust-rover
     rustup
+    mdbook
 
     ## Games
     (prismlauncher.override {

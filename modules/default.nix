@@ -7,5 +7,6 @@
     ./firefox.nix
     ./system.nix
     ./zsh.nix
+    ./obs.nix
   ];
 }
