@@ -71,6 +71,10 @@
     zsh
     jdk21
     pinentry-curses
+
+    # Nixvim
+    tree-sitter
+    gcc
   ];
 
   programs = {
