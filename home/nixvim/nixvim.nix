@@ -21,6 +21,8 @@
 
   ## Plugins
   plugins.fidget.enable = true;
+  plugins.gitsigns.enable = true;
+  plugins.render-markdown.enable = true;
 
   ## Colorsheme Catppuccin - Mocha ##
   colorschemes.catppuccin.enable = true;

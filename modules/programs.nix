@@ -58,6 +58,7 @@
 
     ## Rust
     jetbrains.rust-rover
+    jetbrains.datagrip
     rustup
     mdbook
 
