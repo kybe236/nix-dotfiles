@@ -30,7 +30,7 @@
     };
     luaConfig.post = ''
       vim.o.laststatus = 2
-      vim.o.cmdheight = 0
+      vim.o.cmdheight = 1
     '';
   };
 }
